@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 @Service
 public class CarServiceImpl implements CarService {
     public static List<Car> getCars(Integer count) {
-        
+
         List<Car> cars = new ArrayList<>();
 
         cars.add(new Car(2, "model1", 1));

@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class Car {
     private int series;
     private String model;
@@ -45,5 +47,18 @@ public class Car {
     }
 
     public Car() {
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return series == car.series && Objects.equals(model, car.model);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(series, model);
     }
 }
