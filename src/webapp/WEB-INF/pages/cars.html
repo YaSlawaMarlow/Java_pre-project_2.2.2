@@ -14,7 +14,7 @@
     </tr>
 
     <tr th:each="car : ${cars}">
-        <td th:utext="${car.getModel()}">model</td>
+        <td th:utext="${car.getModel()}">web.model</td>
         <td th:utext="${car.getSeries()}">series</td>
         <td th:utext="${car.getId()}">id</td>
     </tr>
