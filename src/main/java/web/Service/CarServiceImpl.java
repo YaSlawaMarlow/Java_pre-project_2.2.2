@@ -3,6 +3,7 @@ package web.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import web.dao.CarDao;
+import web.dao.CarDaoImpl;
 import web.model.Car;
 import org.springframework.stereotype.Service;
 
@@ -17,9 +18,14 @@ public class CarServiceImpl implements CarService {
     public CarServiceImpl(CarDao carDao) {
         this.carDao = carDao;
     }
+
     @Override
-    @Transactional(readOnly=true)
+    @Transactional(readOnly = true)
     public List<Car> getCars(Integer count) {
-        return carDao.getCars(count);
+        if (count > 0 && count < CarDaoImpl.Y) {
+            return carDao.getCars(count);
+        }else {
+            return carDao.getAllCars();
+        }
     }
 }
